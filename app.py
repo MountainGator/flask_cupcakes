@@ -48,7 +48,7 @@ def create_cupcake():
 @app.route('/cupcakes/update/<int:id>', methods="PATCH")
 def update_cake(id):
     new_data = request.json
-    collection.updateOne({'_id': id}, new_data)
+    collection.updateOne({'_id': id}, {'$set': new_data})
     verify = collection.find({'_id': id})
     return Response(jsonify(verify), 203)
 
