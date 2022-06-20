@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   search() {
     this.api.search(this.query).subscribe((res: any) => {
       console.log('cupcake search:', res);
-      const newDialogRef: MatDialogRef<SearchResultsComponent> = this.dialog.open(SearchResultsComponent, {data: res})
+      const newDialogRef: MatDialogRef<SearchResultsComponent> = this.dialog.open(SearchResultsComponent, {data: {cupcakes: res}})
     })
 
   }
