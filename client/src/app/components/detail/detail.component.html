@@ -1,1 +1,14 @@
-<p>detail works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>{{cake.flavor}} Cupcake</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="cake.image" alt="Photo of a cupcake">
+    <mat-card-content>
+        <h3>Size {{cake.size}}</h3>
+        <h3>Rating: {{cake.rating}}</h3>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="btn btn-warning" (click)="editCake(cake._id)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteCake(cake._id)">Delete</button>
+    </mat-card-actions>
+</mat-card>

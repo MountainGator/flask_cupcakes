@@ -1,3 +1,32 @@
 <div class="container">
+    <section class="row mb-3">
+        <ng-container *ngFor="let cake of cupcakeList" class="col">
+            <app-detail  [cake]="cake"></app-detail>
+        </ng-container>
+    </section>
 
+    <section class="row text-center justify-content-center">
+        <h2 class="text-success">Add new cupcake</h2>
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Flavor</mat-label>
+              <input matInput [(ngModel)]="cakeData.flavor" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Size</mat-label>
+                <mat-select [(ngModel)]="cakeData.size" [ngModelOptions]="{standalone: true}">
+                    <mat-option value="small">small</mat-option>
+                    <mat-option value="medium">medium</mat-option>
+                    <mat-option value="large">large</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-slider min="1" max="10" step="1" [(ngModel)]="cakeData.rating" [ngModelOptions]="{standalone: true}"> </mat-slider> 
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Image Link</mat-label>
+                <input matInput [(ngModel)]="cakeData.image" [ngModelOptions]="{standalone: true}">
+            </mat-form-field> 
+        </form>
+        <button class="btn btn-warning" (click)="handleSubmit()">Create Cake</button>
+    </section>
+    
 </div>

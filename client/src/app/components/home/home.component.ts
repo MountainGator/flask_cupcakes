@@ -13,14 +13,32 @@ export class HomeComponent implements OnInit {
   constructor(public dialog: MatDialog, private api: ApiService) { }
 
   public cupcakeList: Array<cakePost> = []
+  public cakeData: cakePost = {
+    _id:<number> 0, 
+    flavor:<string> '', 
+    size:<string> '', 
+    rating:<number> 0, 
+    image:<string> '' 
+  }
 
   ngOnInit(): void {
     const res: any = this.api.getAll().subscribe((data: any) => {
       console.log('api response:', data);
       this.cupcakeList = data;
+      this.cakeData._id = data.length + 1;
     })
   }
 
-  
+  handleSubmit() {
+    try {
+      const res:any = this.api.createCupcake(this.cakeData).subscribe((data: any) => {
+        console.log('Success! Created Cupcake')
+      })
+    } catch (e) {
+      console.error('error:', e)
+    }
+  }
+
+
 
 }

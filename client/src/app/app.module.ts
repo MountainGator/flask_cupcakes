@@ -5,6 +5,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input'; 
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 import { AppComponent } from './app.component';
@@ -14,6 +17,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { ResultsComponent } from './components/results/results.component';
 import { SearchResultsComponent } from './dialogs/search-results/search-results.component';
+import { EditComponent } from './dialogs/edit/edit.component';
+import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,9 @@ import { SearchResultsComponent } from './dialogs/search-results/search-results.
     HeaderComponent,
     DetailComponent,
     ResultsComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    EditComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,10 @@ import { SearchResultsComponent } from './dialogs/search-results/search-results.
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatSelectModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
