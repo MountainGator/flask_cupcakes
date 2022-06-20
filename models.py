@@ -7,27 +7,17 @@ class Cupcake():
         self.size = size
         self.rating = rating
         self.image = image
-    
-    def make_cupcake (self):
-        cake = {
-            '_id': self.id, 
-            'flavor': self.flavor,
-            'size': self.size,
-            'rating': self.rating,
-            'image': self.image
-        }
-
-        return cake
 
 c1 = Cupcake(
-    id='1',
+    id=1,
     flavor="cherry",
     size="large",
     rating=5,
+    image=''
 )
 
 c2 = Cupcake(
-    id='2',
+    id=2,
     flavor="chocolate",
     size="small",
     rating=9,

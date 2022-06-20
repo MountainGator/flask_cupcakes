@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, session, Response, redirect
+from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 import requests
 from pymongo import MongoClient
@@ -25,7 +25,16 @@ def get_single_cake(id):
 
 @app.route('/cupcakes', methods="POST")
 def create_cupcake():
-    new_cake = Cupcake(request.json)
+    cake = Cupcake(request.json)
+    
+    new_cake = {
+        '_id': cake.id, 
+        'flavor': cake.flavor,
+        'size': cake.size,
+        'rating': cake.rating,
+        'image': cake.image
+    }
+    
     collection.insertOne(new_cake)
 
     print('new cupcake:',collection.find({'_id': new_cake['_id']}))
