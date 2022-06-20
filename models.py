@@ -13,7 +13,7 @@ c1 = Cupcake(
     flavor="cherry",
     size="large",
     rating=5,
-    image=''
+    image='https://www.cookingclassy.com/wp-content/uploads/2014/01/cherry-almond-cupcakes-edit+srgb+text..jpg'
 )
 
 c2 = Cupcake(

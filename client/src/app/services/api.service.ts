@@ -25,6 +25,10 @@ export class ApiService {
     return this.http.get('/cupcakes/' + id )
   }
 
+  search(query: string): Observable<any> {
+    return this.http.get('/cupcakes/search/' + query)
+  }
+
   createCupcake (postBody: cakePost): Observable<any> {
     const res: any = this.http.post('/cupcakes', postBody);
     console.log('post response:', res);

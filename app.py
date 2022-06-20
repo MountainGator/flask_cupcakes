@@ -23,6 +23,11 @@ def get_single_cake(id):
     cake = collection.find({'_id': id})
     return Response(jsonify(cake), 200)
 
+@app.route('/cupcakes/search/<string:query>', methods="GET")
+def get_single_cake(query):
+    cakes = collection.find({'$text': {'$search': query}})
+    return Response(jsonify(cakes), 200)
+
 @app.route('/cupcakes', methods="POST")
 def create_cupcake():
     cake = Cupcake(request.json)

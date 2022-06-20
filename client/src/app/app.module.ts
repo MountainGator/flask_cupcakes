@@ -10,11 +10,19 @@ import {MatInputModule} from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { ResultsComponent } from './components/results/results.component';
+import { SearchResultsComponent } from './dialogs/search-results/search-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    DetailComponent,
+    ResultsComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
