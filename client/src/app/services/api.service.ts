@@ -18,30 +18,30 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getAll (): Observable<any> {
-    return this.http.get('/cupcakes')
+    return this.http.get('http://localhost:5000/cupcakes')
   }
 
   getSingle (id: number): Observable<any> {
-    return this.http.get('/cupcakes/' + id )
+    return this.http.get('http://localhost:5000/cupcakes/' + id )
   }
 
   search(query: string): Observable<any> {
-    return this.http.get('/cupcakes/search/' + query)
+    return this.http.get('http://localhost:5000/cupcakes/search/' + query)
   }
 
   createCupcake (postBody: cakePost): Observable<any> {
-    const res: any = this.http.post('/cupcakes', postBody);
+    const res: any = this.http.post('http://localhost:5000/cupcakes', postBody);
     console.log('post response:', res);
     return res
   }
 
   updateCake (id: number, updateBody: cakePost): Observable<any> {
-    const res: any = this.http.patch('/cupcakes/update/' + id, updateBody);
+    const res: any = this.http.patch('http://localhost:5000/cupcakes/update/' + id, updateBody);
     console.log('post response:', res);
     return res
   }
 
   deleteCake (id: number): Observable<any> {
-    return this.http.delete('/cupcakes/delete/' + id)
+    return this.http.delete('http://localhost:5000/cupcakes/delete/' + id)
   }
 }
