@@ -5,10 +5,10 @@
                 <h1>Cupcakes</h1>
             </a>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" matInput aria-label="Search" [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
-                <button (click)="search()" class="btn btn-warning">Search</button>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 ms-lg-3">
+                <input type="search" class="row rounded p-2" aria-label="Search" [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
             </form>
+            <button (click)="search()" class="btn btn-warning">Search</button>
         </div>
     </div>
   </header>
