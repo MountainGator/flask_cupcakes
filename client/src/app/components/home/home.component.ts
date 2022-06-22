@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   handleSubmit() {
+    this.cakeData['_id'] += 1;
     try {
       const res:any = this.api.createCupcake(this.cakeData).subscribe((data: any) => {
         console.log('Success! Created Cupcake')
