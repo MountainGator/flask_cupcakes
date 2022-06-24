@@ -22,10 +22,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const res: any = this.api.getAll().subscribe((data: any) => {
-      console.log('api response:', data);
-      this.cupcakeList = data;
-      this.cakeData._id = data.length + 1;
+    const res: any = this.api.getAll().subscribe((res: any) => {
+      console.log('api response:', res.data);
+      this.cupcakeList = res.data;
+      this.cakeData._id = res.data.length + 1;
     })
   }
 

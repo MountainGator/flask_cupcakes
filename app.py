@@ -1,7 +1,12 @@
 from flask import Flask, jsonify, request, Response
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from pymongo import MongoClient
 from models import Cupcake, c1, c2
+import json
+from bson.json_util import dumps
+
+
+
 
 app = Flask(__name__)
 CORS(app)
@@ -10,12 +15,18 @@ client = MongoClient('localhost', 27017)
 db = client.cupcakes
 collection = db.list
 
-collection.insert_many([c1.get_json(),c2.get_json()])
+
+# collection.insert_many([c1.get_json(),c2.get_json()])
 
 @app.route('/cupcakes', methods=["GET"])
 def get_cupcakes():
-    all_cakes = collection.find()
-    return Response(jsonify(all_cakes), 200)
+    json_docs = []
+    all_cakes = collection.find({})
+    for doc in all_cakes:
+        # json_doc = dumps(doc)
+        json_docs.append(doc)
+    print('json docs:',json_docs)
+    return ({'data': json_docs})
 
 @app.route('/cupcakes/<int:id>', methods=["GET"])
 def get_single_cake(id):
@@ -41,13 +52,11 @@ def update_cake(id):
     new_data = request.json
     collection.update_one({'_id': id}, {'$set': new_data})
     verify = collection.find({'_id': id})
+    print('db response to patch:', verify)
     return Response(jsonify(verify), 203)
 
 @app.route('/cupcakes/delete/<int:id>', methods=["DELETE"])
 def delete_cake(id):
     collection.delete_one({'_id': id})
-    verify = collection.find()
+    verify = collection.find({})
     return Response(jsonify(verify), 204)
-
-
-app.run()
